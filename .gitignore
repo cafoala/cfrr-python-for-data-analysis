@@ -218,3 +218,12 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Figures saved by the notebooks
+notebooks/*.png
+instructor/*.png
+
+# Downloaded when the notebooks run
+instructor/data/
+instructor/day2_checkpoint.ipynb
+notebooks/data/
