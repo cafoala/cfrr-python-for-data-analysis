@@ -1,0 +1,2 @@
+# Keep the Met Office snapshots byte for byte (they use CRLF line endings), so the checksums in data/README.md stay valid
+data/raw/*.txt -text
