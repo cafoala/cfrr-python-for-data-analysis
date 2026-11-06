@@ -15,11 +15,11 @@ You don't need git or a copy of this repository. Before the first session, follo
 pip install plotly
 ```
 
-You will need an internet connection in the session: the notebooks download the data themselves.
+Before the first session you will be sent `python-for-data-analysis.zip`: both days' notebooks, their solutions and the data. Extract it into your course folder. On Windows, right-click it and choose **Extract All**: double-clicking only looks inside the zip, and the notebooks won't find their data. You don't need an internet connection in the session.
 
 ## During the course
 
-The sessions are a code-along. Each day, start `jupyter lab` in your course folder, create a new notebook (File > New > Notebook) and type the code as the instructor does. If you fall behind, copy the cell you missed from that day's solutions notebook, which you can read here on GitHub:
+The sessions are a code-along. Start `jupyter lab` in your course folder, open the extracted `python-for-data-analysis` folder, and open that day's notebook, `day1.ipynb` or `day2.ipynb`. The explanations are written for you and most code cells are empty: type the code into them as the instructor does. If you fall behind, copy the cell you missed from that day's solutions notebook, next to it in the same folder, which has every cell filled in. You can also read the solutions here:
 
 - [Day 1 solutions](notebooks/day1_solutions.ipynb)
 - [Day 2 solutions](notebooks/day2_solutions.ipynb)
@@ -28,39 +28,54 @@ The sessions are a code-along. Each day, start `jupyter lab` in your course fold
 
 | Path | What it is |
 |---|---|
-| `notebooks/day1_solutions.ipynb` | Day 1 complete: every cell, its output, and the answer to every exercise |
-| `notebooks/day2_checkpoint.ipynb` | Day 1's cleaning in one place; Day 2 downloads it and runs it with `%run` |
+| `notebooks/` | Exactly what goes in the learners' zip, and nothing else |
+| `notebooks/day1.ipynb`, `notebooks/day2.ipynb` | What learners fill in: the explanations, with empty code cells |
+| `notebooks/day1_solutions.ipynb` | Day 1 complete: every cell and its output |
+| `notebooks/day2_checkpoint.ipynb` | Day 1's cleaning in one place; Day 2 runs it with `%run` |
 | `notebooks/day2_solutions.ipynb` | Day 2 complete |
-| `instructor/` | Demo notebooks: the solutions plus the instructor's speaker notes |
+| `notebooks/data/` | Pinned snapshots of the Met Office files; see `notebooks/data/README.md` |
+| `instructor/` | Demo notebooks: the solutions plus the instructor's speaker notes. `data` and `day2_checkpoint.ipynb` here are links to the copies in `notebooks/` |
 | `instructor_notes.md` | How to run the code-along, and the timetable for both days |
-| `data/` | Pinned snapshots of the Met Office files, which the notebooks download; see `data/README.md` |
-| `tools/make_solutions.py` | Builds each solutions notebook from its demo notebook |
-| `tests/test_notebooks.py` | Runs every notebook and checks the solutions notebooks are up to date |
+| `tools/make_notebooks.py` | Builds the learners' notebooks and the solutions notebooks from the demo notebooks |
+| `tests/test_notebooks.py` | Runs every demo notebook and checks the learners' notebooks are up to date |
 
 ## Maintaining the course
 
-The **demo notebooks in `instructor/` are the source**. Edit those, never the solutions notebooks. Speaker notes are markdown cells tagged `instructor`; the build leaves them out of the solutions notebooks. Cells tagged `raises-exception` show learners a real error on purpose, and the tests allow them to fail.
+The **demo notebooks in `instructor/` are the source**. Edit those, never the notebooks in `notebooks/` (except the checkpoint). Three cell tags matter:
 
-Tags are cell metadata, not buttons. VS Code shows them as chips above each cell, and the `x` on a chip deletes the tag. In JupyterLab they sit under the property inspector (the gear icon in the right sidebar). The solutions notebooks carry no tags.
+| Tag | Meaning |
+|---|---|
+| `instructor` | A speaker note. Left out of the learners' notebooks |
+| `given` | A code cell learners get already filled in: setup, or syntax not worth typing. Every other code cell is empty in `dayN.ipynb` |
+| `raises-exception` | Shows learners a real error on purpose. The tests allow it to fail |
 
-After editing, rerun the demo notebook from the top (so its outputs are current), rebuild the solutions notebooks and run the checks:
+Tags are cell metadata, not buttons. VS Code shows them as chips above each cell, and the `x` on a chip deletes the tag. In JupyterLab they sit under the property inspector (the gear icon in the right sidebar). The learners' notebooks carry no tags.
+
+After editing, rerun the demo notebook from the top (so its outputs are current), rebuild the learners' notebooks and run the checks:
 
 ```bash
-uv run python tools/make_solutions.py
+uv run python tools/make_notebooks.py
 uv run python tests/test_notebooks.py
 ```
 
-The tests need an internet connection. They run each demo notebook and the checkpoint from a fresh kernel, and fail if a solutions notebook is out of date.
+They run each demo notebook and the checkpoint from a fresh kernel, and fail if a learners' notebook is out of date.
 
 To work on the course itself, clone the repository and run `uv sync`, or use `pip install -r requirements.txt` in a virtual environment.
 
-### Changing the data or the checkpoint
+### Building the learners' zip
 
-The notebooks download from the tag `snapshot-2026-10-29`, not from `main`, so changing those files here changes nothing for learners. To release a change:
+Everything in `notebooks/` goes to learners. Commit, then build the zip from that commit:
 
-1. Pick a new tag name and change `BASE` in the checkpoint to it. The tagged checkpoint has to name its own tag.
-2. Commit the data and the checkpoint, tag that commit, and push both.
-3. Change `BASE` in the demo notebooks to the new tag, rerun them, rebuild the solutions and run the tests.
+```bash
+mkdir -p dist
+git archive --format=zip --prefix=python-for-data-analysis/ -o dist/python-for-data-analysis.zip HEAD:notebooks
+```
+
+`git archive` takes only committed files, so the zip never picks up saved figures, `.ipynb_checkpoints` or uncommitted edits, and the data files keep their exact bytes. If you change anything after sending the zip, rebuild it and send it again.
+
+To change the data, replace the files in `notebooks/data/`, update the date and checksums in its README, rerun the demo notebooks and update the numbers in the speaker notes.
+
+`instructor/data` and `instructor/day2_checkpoint.ipynb` are symbolic links, so the demo notebooks run in place. On Windows, git checks them out as links only with `core.symlinks` enabled.
 
 To change dependencies, use `uv add <package>` (or edit `pyproject.toml` and run `uv lock`), then regenerate the pip file:
 

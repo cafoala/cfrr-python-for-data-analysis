@@ -1,18 +1,18 @@
 # Data
 
-Monthly records from two Met Office long-running UK stations, downloaded on **29 October 2026** and kept here as a fixed snapshot. The notebooks always read these files, never the live versions: the Met Office updates the live files every month and revises provisional values, so results computed from them would drift.
+Monthly records from two Met Office long-running UK stations, downloaded on **29 October 2026** and kept here as a fixed snapshot. Learners get them in the course zip, next to the notebooks. The notebooks always read these files, never the live versions: the Met Office updates the live files every month and revises provisional values, so results computed from them would drift.
 
 | File | Station | Source | Records | SHA-256 |
 |---|---|---|---|---|
-| `raw/oxforddata.txt` | Oxford | [oxforddata.txt](https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/oxforddata.txt) | January 1853 to September 2026 | `7bd7f15c624736b0685c6c4ee1e2442f6805544f9b68de58981ff2f137b4d7e3` |
-| `raw/lerwickdata.txt` | Lerwick, Shetland | [lerwickdata.txt](https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/lerwickdata.txt) | December 1930 to September 2026 | `305a960d42bffef4c00f29af4e8680f6ce6d7f895698595179aa2bb2af5603c3` |
+| `oxforddata.txt` | Oxford | [oxforddata.txt](https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/oxforddata.txt) | January 1853 to September 2026 | `7bd7f15c624736b0685c6c4ee1e2442f6805544f9b68de58981ff2f137b4d7e3` |
+| `lerwickdata.txt` | Lerwick, Shetland | [lerwickdata.txt](https://www.metoffice.gov.uk/pub/data/weather/uk/climate/stationdata/lerwickdata.txt) | December 1930 to September 2026 | `305a960d42bffef4c00f29af4e8680f6ce6d7f895698595179aa2bb2af5603c3` |
 
 Both come from the Met Office [historic station data](https://www.metoffice.gov.uk/research/climate/maps-and-data/historic-station-data) page.
 
 To check a file has not changed:
 
 ```bash
-shasum -a 256 data/raw/*.txt        # Windows: certutil -hashfile data\raw\oxforddata.txt SHA256
+shasum -a 256 data/*.txt        # Windows: certutil -hashfile data\oxforddata.txt SHA256
 ```
 
 ## Columns

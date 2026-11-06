@@ -223,7 +223,3 @@ __marimo__/
 notebooks/*.png
 instructor/*.png
 
-# Downloaded when the notebooks run
-instructor/data/
-instructor/day2_checkpoint.ipynb
-notebooks/data/
