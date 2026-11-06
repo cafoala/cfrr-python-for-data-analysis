@@ -29,6 +29,7 @@ Learners don't need git or a copy of this repository. Before the first session, 
 - Walk round, or ask a helper to, and look for red sticky notes. When someone falls behind, point them to the solutions notebook rather than waiting for them.
 - Slow down at the moments marked **Slow down** in the demo notebooks. They are the point of the block, not an obstacle to it.
 - Copilot and chatbots will offer learners code. Say so openly. On both days the story stops to check a suggested fix (`errors="coerce"`) and finds it wrong.
+- Day 1's practice block is the one time learners write code on their own. Stop typing, walk round, and only take answers on screen once most people have tried a few questions.
 
 ## Day 1: getting to know the data
 
@@ -36,14 +37,17 @@ Learners start in `day1.ipynb`, in the folder they extracted from the zip.
 
 | Time | Block | Live-code |
 |---|---|---|
-| 10:00 (15 min) | 1. Welcome, the question and the data | Nothing. The question, then talk through "Meet the data" |
-| 10:15 (15 min) | 2. First look at the raw file | The setup cell; open the raw file and find what makes it awkward; the naive `read_csv` |
-| 10:30 (30 min) | 3. Loading it properly | `sep`, then `skiprows` and `names`, read the error, add `status`, `na_values`; anatomy of a DataFrame |
-| 11:00 (30 min) | 4. The asterisk problem | `dtypes`, find the `*` rows, the `errors="coerce"` trap, the loop |
-| 11:30 (15 min) | Break | |
-| 11:45 (35 min) | 5. NumPy | `.to_numpy()`, loop vs vectorised, NaN, masks, the sunshine decision |
-| 12:20 (30 min) | 6. Split-apply-combine | Datetime index, the plan in English, `groupby`, rank the Julys |
-| 12:50 (10 min) | 7. Cliffhanger | The summer ranking; three reasons a ranking is not enough |
+| 10:00 (10 min) | 1. Welcome, the question and the data | Nothing. The question, then talk through "Meet the data" |
+| 10:10 (10 min) | 2. First look at the raw file | The setup cell; open the raw file and find what makes it awkward; the naive `read_csv` |
+| 10:20 (20 min) | 3. Loading it properly | `sep`, then `skiprows` and `names`, read the error, add `status`, then `na_values`; anatomy of a DataFrame |
+| 10:40 (20 min) | 4. The asterisk problem | `dtypes`, find the `*` rows, `pd.to_numeric` fails loudly, the `errors="coerce"` trap, the loop, `.describe()` |
+| 11:00 (10 min) | Break | |
+| 11:10 (25 min) | 5. NumPy | `.to_numpy()`, loop vs vectorised, NaN, the sunshine decision |
+| 11:35 (15 min) | 6. Asking questions with masks | One condition, `.loc[rows, columns]`, `&` and the missing-brackets trap, `\|`, `~`, `.isin()`, `.between()` |
+| 11:50 (20 min) | 7. Split-apply-combine | Datetime index, the plan in English, `groupby`, rank the Julys |
+| 12:10 (10 min) | Break | |
+| 12:20 (30 min) | 8. Practice | Learners work alone for about 20 minutes on 15 questions covering the whole day, then you go through two or three together |
+| 12:50 (10 min) | 9. Cliffhanger | The summer ranking; three reasons a ranking is not enough |
 
 ## Day 2: answering the question
 
