@@ -1,9 +1,9 @@
 # Python for Data Analysis
 
-Two three-hour sessions for the [Coding for Reproducible Research (CfRR)](https://coding-for-reproducible-research.github.io/CfRR_Courses/) programme at the University of Exeter. The course teaches NumPy, pandas, matplotlib, Plotly and scikit-learn through one question: **was summer 2026 actually unusual, or does it just feel that way?** Learners answer it with Met Office monthly weather records for Oxford (from 1853) and Lerwick (from 1930).
+Two three-hour sessions for the [Coding for Reproducible Research (CfRR)](https://coding-for-reproducible-research.github.io/CfRR_Courses/) programme at the University of Exeter. The course teaches NumPy, pandas, matplotlib and Plotly, with a little SciPy for statistics, through one question: **was summer 2026 actually unusual, or does it just feel that way?** Learners answer it with Met Office monthly weather records for Oxford (from 1853) and Lerwick (from 1930).
 
-- **Day 1, getting to know the data:** load a messy text file, find out why it misbehaves, clean it without throwing information away, see the NumPy arrays underneath, decide what to do about missing data, and summarise with `groupby`.
-- **Day 2, answering the question:** plot it with `fig, ax` and Plotly, fit a trend, bring in a second station with a tested `load_station()` function, try some machine learning, and check the analysis reproduces.
+- **Day 1, getting to know the data:** warm up on the Python you'll need, load a messy text file, find out why it misbehaves, clean it without throwing information away, give every month a date, pick out rows by label, position and boolean mask, see the NumPy arrays underneath, decide what to do about missing data, and summarise with `groupby`.
+- **Day 2, answering the question:** plot it with `fig, ax` and Plotly, fit a trend and test how sure it is, bring in a second station with a tested `load_station()` function, combine and resample the two records, and check the analysis reproduces.
 
 Prerequisite: the CfRR [Introduction to Python](https://coding-for-reproducible-research.github.io/CfRR_Courses/individual_modules/section_landing_pages/introduction_to_python.html) course, or equivalent.
 
@@ -71,7 +71,7 @@ mkdir -p dist
 git archive --format=zip --prefix=python-for-data-analysis/ -o dist/python-for-data-analysis.zip HEAD:notebooks
 ```
 
-`git archive` takes only committed files, so the zip never picks up saved figures, `.ipynb_checkpoints` or uncommitted edits, and the data files keep their exact bytes. If you change anything after sending the zip, rebuild it and send it again.
+`git archive` takes only committed files, so the zip never picks up saved figures and CSV files, `.ipynb_checkpoints` or uncommitted edits, and the data files keep their exact bytes. If you change anything after sending the zip, rebuild it and send it again.
 
 To change the data, replace the files in `notebooks/data/`, update the date and checksums in its README, rerun the demo notebooks and update the numbers in the speaker notes.
 

@@ -219,7 +219,9 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# Figures saved by the notebooks
+# Figures and CSV files saved by the notebooks
 notebooks/*.png
 instructor/*.png
+notebooks/*.csv
+instructor/*.csv
 
