@@ -29,7 +29,7 @@ Learners don't need git or a copy of this repository. Before the first session, 
 - Cells that are filled in already (setup, and a few cells of fiddly syntax) are for running and talking through, not typing.
 - Walk round, or ask a helper to, and look for red sticky notes. When someone falls behind, point them to the solutions notebook rather than waiting for them.
 - Slow down at the moments marked **Slow down** in the demo notebooks. They are the point of the block, not an obstacle to it.
-- Copilot and chatbots will offer learners code. Say so openly. On both days the story stops to check a suggested fix (`errors="coerce"`) and finds it wrong.
+- Copilot and chatbots will offer learners code. Say so openly. On Day 1 the story stops to check a suggested fix (`errors="coerce"`) and finds it wrong; on Day 2 it comes back only if someone suggests it for Lerwick's `#`.
 - Day 1's practice block is the one time learners write code on their own. It ends the day, so if the morning overruns it is the block that shrinks. Stop typing, walk round, and only take answers on screen once most people have tried a few questions.
 
 ## Day 1: getting to know the data
@@ -42,9 +42,9 @@ Learners start in `day1.ipynb`, in the folder they extracted from the zip.
 | 10:10 (10 min) | 2. Python warm-up | Whizz through: `str` methods on `"13.1*"`, `float`, `bool` and `and`, a list and a loop, a dict, a function |
 | 10:20 (10 min) | 3. First look at the raw file | The setup cell; open the raw file and find what makes it awkward; the naive `read_csv` |
 | 10:30 (15 min) | 4. Loading it properly | `sep` and read the error, then `skiprows` and `names` (with `status` for the `Provisional` rows), then `na_values`; anatomy of a DataFrame, `.columns` |
-| 10:45 (20 min) | 5. The asterisk problem | `.info()`, find the `*` rows, `pd.to_numeric` fails loudly, the `errors="coerce"` trap, the loop, `.describe()` |
+| 10:45 (20 min) | 5. The messy data problem | `.info()`, find the `*` rows, `pd.to_numeric` fails loudly, the `errors="coerce"` trap, the loop, `.describe()` |
 | 11:05 (10 min) | Break | |
-| 11:15 (25 min) | 6. Picking rows: dates, labels and masks | About 10 minutes: `pd.to_datetime`, `.dt`, `format=`, `set_index`, `.loc` with dates, `.iloc`. About 15: one condition, `.loc[rows, columns]`, `&` and the missing-brackets trap, `~`, `.isin()` |
+| 11:15 (25 min) | 6. Picking rows: dates, labels and masks | About 10 minutes: `pd.to_datetime`, `.dt`, `format=`, `set_index`, `.loc[rows, columns]` with dates, `.iloc`. About 15: one condition, a mask as the rows in `.loc`, `&` and the missing-brackets trap, `~`, `.isin()` |
 | 11:40 (10 min) | 7. Missing data is a decision | `dropna`, `.count()` and `.mean()` skipping `NaN`, the five options for the missing sunshine, `fillna` shrinking the spread, `.interpolate()` filling none of the sunshine but the one `tmin` gap |
 | 11:50 (25 min) | 8. Split-apply-combine | The plan in English; one summer by hand with a mask; `groupby` on its own only splits; `.size()` to check the groups; `["tmax"].mean()` and the group key as the index; by month, `.agg()`, `.count()`; rank the Julys |
 | 12:15 (5 min) | 9. Cliffhanger | The summer ranking; three reasons a ranking is not enough |
@@ -58,9 +58,10 @@ Learners start in `day2.ipynb`, in the same folder. Its first two cells, filled 
 | Time | Block | Live-code |
 |---|---|---|
 | 10:00 (10 min) | 1. Recap and "Restart and run all" | Yesterday's cleaning in one filled-in cell; the hidden-state demo |
-| 10:10 (45 min) | 2. Seeing it | `fig, ax` step by step and `savefig` for about 30 minutes, then Plotly (`px.line`, `px.box`) for about 15 |
+| 10:10 (40 min) | 2. Seeing it | `fig, ax` step by step and `savefig` for about 25 minutes, then Plotly (`px.line`, `px.box`) for about 15 |
+| 10:50 (5 min) | Break | Stand up and stretch. Keep it even if block 2 overran |
 | 10:55 (40 min) | 3. Is it a trend? | About 10 minutes of NumPy: `.to_numpy()`, loop vs vectorised, `%timeit`, how NaN behaves. Then about 30: `np.polyfit`; 1853 vs 1970; `linregress`: standard error, p-value, r²; distance from the trend as a z-score. Each result goes onto one `fig, ax` chart as it comes (the standard-error fan is optional) |
 | 11:35 (10 min) | Break | |
 | 11:45 (35 min) | 4. A second station | `load_station()`, Lerwick fails, the fix, moving `load_station()` into `helper.py`, `concat`, saving `both` with `to_csv`, `groupby` |
-| 12:20 (30 min) | 5. Combining and resampling | `unstack`, `.corr()` and `px.scatter`, `merge` (inner vs left), the Oxford–Lerwick gap, `resample` to years and seasons |
-| 12:50 (10 min) | 6. Wrap | The answer; reproducibility checklist; uv demo; where next |
+| 12:20 (30 min) | 5. Combining and resampling | `unstack`, `.corr()` and `px.scatter`, `merge` (inner vs left), the Oxford–Lerwick gap, `resample` to years (and January to September, like for like) and seasons |
+| 12:50 (10 min) | 6. Wrap | The answer from both stations; reproducibility checklist; uv demo; where next |
