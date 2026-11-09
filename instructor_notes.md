@@ -19,7 +19,7 @@ Learners don't need git or a copy of this repository. Before the first session, 
 - Zoom JupyterLab to about 150% (Ctrl or Cmd and `+`) and use a light theme.
 - Hand out two colours of sticky note: green for "done", red for "stuck, please come over".
 - Learners on Python 3.10 have pandas 2.3; anyone on Python 3.11 or later who installed recently has pandas 3. Text columns show as `object` rather than `str`, and one error message is worded differently (Day 1, block 5).
-- Day 2 uses `scipy.stats`. Nobody needs to install it: SciPy comes with scikit-learn, which the CfRR install command includes. If an import fails, `pip install scipy`.
+- Day 2 uses Plotly and `scipy.stats`. The README's setup installs both on top of the CfRR install command. If an import fails, `pip install plotly scipy`.
 
 ## While live coding
 
@@ -45,8 +45,8 @@ Learners start in `day1.ipynb`, in the folder they extracted from the zip.
 | 10:45 (20 min) | 5. The asterisk problem | `.info()`, find the `*` rows, `pd.to_numeric` fails loudly, the `errors="coerce"` trap, the loop, `.describe()` |
 | 11:05 (10 min) | Break | |
 | 11:15 (25 min) | 6. Picking rows: dates, labels and masks | About 10 minutes: `pd.to_datetime`, `.dt`, `format=`, `set_index`, `.loc` with dates, `.iloc`. About 15: one condition, `.loc[rows, columns]`, `&` and the missing-brackets trap, `~`, `.isin()` |
-| 11:40 (20 min) | 7. NumPy | `.to_numpy()`, loop vs vectorised, NaN, the sunshine decision |
-| 12:00 (15 min) | 8. Split-apply-combine | The plan in English, `groupby`, rank the Julys |
+| 11:40 (10 min) | 7. Missing data is a decision | `dropna`, `.count()` and `.mean()` skipping `NaN`, the five options for the missing sunshine, `fillna` shrinking the spread, `.interpolate()` filling none of the sunshine but the one `tmin` gap |
+| 11:50 (25 min) | 8. Split-apply-combine | The plan in English; one summer by hand with a mask; `groupby` on its own only splits; `.size()` to check the groups; `["tmax"].mean()` and the group key as the index; by month, `.agg()`, `.count()`; rank the Julys |
 | 12:15 (5 min) | 9. Cliffhanger | The summer ranking; three reasons a ranking is not enough |
 | 12:20 (10 min) | Break | |
 | 12:30 (30 min) | 10. Practice | Learners work alone on 16 questions covering the whole day, as far as they get; in the last 5 to 10 minutes you go through two or three together, and they finish the rest in their own time |
@@ -57,10 +57,10 @@ Learners start in `day2.ipynb`, in the same folder. Its first cell runs `day2_ch
 
 | Time | Block | Live-code |
 |---|---|---|
-| 10:00 (15 min) | 1. Recap and "Restart and run all" | `%run` the checkpoint; the hidden-state demo |
-| 10:15 (45 min) | 2. Seeing it | `fig, ax` step by step and `to_csv` for about 30 minutes, then Plotly (`px.line`, `px.box`) for about 15 |
-| 11:00 (30 min) | 3. Is it a trend? | `np.polyfit`; 1853 vs 1970; `linregress`: standard error, p-value, r²; distance from the trend as a z-score |
-| 11:30 (15 min) | Break | |
+| 10:00 (10 min) | 1. Recap and "Restart and run all" | `%run` the checkpoint; the hidden-state demo |
+| 10:10 (45 min) | 2. Seeing it | `fig, ax` step by step and `to_csv` for about 30 minutes, then Plotly (`px.line`, `px.box`) for about 15 |
+| 10:55 (40 min) | 3. Is it a trend? | About 10 minutes of NumPy: `.to_numpy()`, loop vs vectorised, `%timeit`, how NaN behaves. Then about 30: `np.polyfit`; 1853 vs 1970; `linregress`: standard error, p-value, r²; distance from the trend as a z-score. Each result goes onto one `fig, ax` chart as it comes (the standard-error fan is optional) |
+| 11:35 (10 min) | Break | |
 | 11:45 (35 min) | 4. A second station | `load_station()`, `check_station()`, Lerwick fails, the coerce trap, the fix, `concat`, `groupby` |
 | 12:20 (30 min) | 5. Combining and resampling | `unstack`, `.corr()` and `px.scatter`, `merge` (inner vs left), the Oxford–Lerwick gap, `resample` to years and seasons |
 | 12:50 (10 min) | 6. Wrap | The answer; reproducibility checklist; uv demo; where next |

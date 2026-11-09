@@ -2,17 +2,17 @@
 
 Two three-hour sessions for the [Coding for Reproducible Research (CfRR)](https://coding-for-reproducible-research.github.io/CfRR_Courses/) programme at the University of Exeter. The course teaches NumPy, pandas, matplotlib and Plotly, with a little SciPy for statistics, through one question: **was summer 2026 actually unusual, or does it just feel that way?** Learners answer it with Met Office monthly weather records for Oxford (from 1853) and Lerwick (from 1930).
 
-- **Day 1, getting to know the data:** warm up on the Python you'll need, load a messy text file, find out why it misbehaves, clean it without throwing information away, give every month a date, pick out rows by label, position and boolean mask, see the NumPy arrays underneath, decide what to do about missing data, and summarise with `groupby`.
-- **Day 2, answering the question:** plot it with `fig, ax` and Plotly, fit a trend and test how sure it is, bring in a second station with a tested `load_station()` function, combine and resample the two records, and check the analysis reproduces.
+- **Day 1, getting to know the data:** warm up on the Python you'll need, load a messy text file, find out why it misbehaves, clean it without throwing information away, give every month a date, pick out rows by label, position and boolean mask, decide what to do about missing data, and summarise with `groupby`.
+- **Day 2, answering the question:** plot it with `fig, ax` and Plotly, see the NumPy arrays underneath pandas, fit a trend and test how sure it is, bring in a second station with a tested `load_station()` function, combine and resample the two records, and check the analysis reproduces.
 
 Prerequisite: the CfRR [Introduction to Python](https://coding-for-reproducible-research.github.io/CfRR_Courses/individual_modules/section_landing_pages/introduction_to_python.html) course, or equivalent.
 
 ## Setup
 
-You don't need git or a copy of this repository. Before the first session, follow the [CfRR setup](https://coding-for-reproducible-research.github.io/CfRR_Courses/programme_information/python_for_data_analysis.html): a course folder, a `.venv` inside it, and the libraries installed. Then add Plotly, which that install command leaves out:
+You don't need git or a copy of this repository. Before the first session, follow the [CfRR setup](https://coding-for-reproducible-research.github.io/CfRR_Courses/programme_information/python_for_data_analysis.html): a course folder, a `.venv` inside it, and the libraries installed. Then add Plotly, which that install command leaves out, and SciPy, which Day 2 uses for statistics:
 
 ```bash
-pip install plotly
+pip install plotly scipy
 ```
 
 Before the first session you will be sent `python-for-data-analysis.zip`: both days' notebooks, their solutions and the data. Extract it into your course folder. On Windows, right-click it and choose **Extract All**: double-clicking only looks inside the zip, and the notebooks won't find their data. You don't need an internet connection in the session.
