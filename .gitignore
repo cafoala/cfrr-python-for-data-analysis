@@ -219,9 +219,11 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 
-# Figures and CSV files saved by the notebooks
+# Files the notebooks write: figures, CSV files and Day 2's helper.py
 notebooks/*.png
 instructor/*.png
 notebooks/*.csv
 instructor/*.csv
+notebooks/helper.py
+instructor/helper.py
 

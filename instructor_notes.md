@@ -9,7 +9,7 @@ Learners get two notebooks per day, both built from the demo notebook without th
 - `dayN.ipynb`, which they fill in
 - `dayN_solutions.ipynb`, with every cell filled in, next to it, which they copy from if they fall behind
 
-Learners don't need git or a copy of this repository. Before the first session, send them `python-for-data-analysis.zip` (the README says how to build it): both days' notebooks, the solutions, the Day 2 checkpoint and the data. They extract it into the course folder from the CfRR setup, and nothing is downloaded in the session.
+Learners don't need git or a copy of this repository. Before the first session, send them `python-for-data-analysis.zip` (the README says how to build it): both days' notebooks, the solutions and the data. They extract it into the course folder from the CfRR setup, and nothing is downloaded in the session.
 
 ## Before each session
 
@@ -53,14 +53,14 @@ Learners start in `day1.ipynb`, in the folder they extracted from the zip.
 
 ## Day 2: answering the question
 
-Learners start in `day2.ipynb`, in the same folder. Its first cell runs `day2_checkpoint.ipynb`, so nobody needs yesterday's notebook to work.
+Learners start in `day2.ipynb`, in the same folder. Its first two cells, filled in, redo Day 1's cleaning, so nobody needs yesterday's notebook to work.
 
 | Time | Block | Live-code |
 |---|---|---|
-| 10:00 (10 min) | 1. Recap and "Restart and run all" | `%run` the checkpoint; the hidden-state demo |
-| 10:10 (45 min) | 2. Seeing it | `fig, ax` step by step and `to_csv` for about 30 minutes, then Plotly (`px.line`, `px.box`) for about 15 |
+| 10:00 (10 min) | 1. Recap and "Restart and run all" | Yesterday's cleaning in one filled-in cell; the hidden-state demo |
+| 10:10 (45 min) | 2. Seeing it | `fig, ax` step by step and `savefig` for about 30 minutes, then Plotly (`px.line`, `px.box`) for about 15 |
 | 10:55 (40 min) | 3. Is it a trend? | About 10 minutes of NumPy: `.to_numpy()`, loop vs vectorised, `%timeit`, how NaN behaves. Then about 30: `np.polyfit`; 1853 vs 1970; `linregress`: standard error, p-value, r²; distance from the trend as a z-score. Each result goes onto one `fig, ax` chart as it comes (the standard-error fan is optional) |
 | 11:35 (10 min) | Break | |
-| 11:45 (35 min) | 4. A second station | `load_station()`, `check_station()`, Lerwick fails, the coerce trap, the fix, `concat`, `groupby` |
+| 11:45 (35 min) | 4. A second station | `load_station()`, Lerwick fails, the fix, moving `load_station()` into `helper.py`, `concat`, saving `both` with `to_csv`, `groupby` |
 | 12:20 (30 min) | 5. Combining and resampling | `unstack`, `.corr()` and `px.scatter`, `merge` (inner vs left), the Oxford–Lerwick gap, `resample` to years and seasons |
 | 12:50 (10 min) | 6. Wrap | The answer; reproducibility checklist; uv demo; where next |

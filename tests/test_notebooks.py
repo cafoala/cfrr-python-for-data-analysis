@@ -1,6 +1,6 @@
 """Check the course notebooks.
 
-- the demo notebooks and the Day 2 checkpoint run top to bottom from a fresh kernel
+- the demo notebooks run top to bottom from a fresh kernel
 - the learners' notebooks are up to date with the demo notebooks
 - in the notebooks learners fill in, only cells tagged "given" keep their code
 
@@ -20,12 +20,10 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 from make_notebooks import DEMOS, build, targets  # noqa: E402
 
-RUN_IN_FULL = [*DEMOS, ROOT / "notebooks" / "day2_checkpoint.ipynb"]
-
 
 def test_notebooks_run_top_to_bottom():
     # Cells tagged "raises-exception" are allowed to fail; any other error fails the test
-    for path in RUN_IN_FULL:
+    for path in DEMOS:
         nb = nbformat.read(path, as_version=4)
         NotebookClient(nb, timeout=600, kernel_name="python3",
                        resources={"metadata": {"path": str(path.parent)}}).execute()
