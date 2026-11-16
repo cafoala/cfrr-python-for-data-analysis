@@ -19,7 +19,7 @@ Learners don't need git or a copy of this repository. Before the first session, 
 - Zoom JupyterLab to about 150% (Ctrl or Cmd and `+`) and use a light theme.
 - Hand out two colours of sticky note: green for "done", red for "stuck, please come over".
 - Learners on Python 3.10 have pandas 2.3; anyone on Python 3.11 or later who installed recently has pandas 3. Text columns show as `object` rather than `str`, and one error message is worded differently (Day 1, block 5).
-- Day 2 uses Plotly, `scipy.stats` and scikit-learn. The CfRR install command includes scikit-learn, and the README's setup adds Plotly and SciPy on top of it. If an import fails, `pip install plotly scipy scikit-learn`.
+- Day 2 uses Plotly, `scipy.stats` and scikit-learn. The CfRR install command includes scikit-learn, and the README's setup adds Plotly and SciPy on top of it. If an import fails, `pip install plotly scipy scikit-learn`. Before 10:00 on Day 2, have everyone run `import plotly, scipy, sklearn`, so a failed install is fixed before it's needed.
 
 ## While live coding
 
@@ -31,6 +31,7 @@ Learners don't need git or a copy of this repository. Before the first session, 
 - Slow down at the moments marked **Slow down** in the demo notebooks. They are the point of the block, not an obstacle to it.
 - Copilot and chatbots will offer learners code. Say so openly. On Day 1 the story stops to check a suggested fix (`errors="coerce"`) and finds it wrong; on Day 2 it comes back only if someone suggests it for Lerwick's `#`.
 - Day 1's practice block is the one time learners write code on their own. It ends the day, so if the morning overruns it is the block that shrinks. Stop typing, walk round, and only take answers on screen once most people have tried a few questions.
+- Day 2 has no practice block, so the block that gives is machine learning (block 6): stop it after `predict`, or skip it. The wrap needs nothing from it. Never cut the wrap.
 
 ## Day 1: getting to know the data
 
@@ -58,11 +59,11 @@ Learners start in `day2.ipynb`, in the same folder. Its first two cells, filled 
 | Time | Block | Live-code |
 |---|---|---|
 | 10:00 (10 min) | 1. Recap | Yesterday's cleaning in one filled-in cell, then the summer averages again, with `reset_index()` |
-| 10:10 (40 min) | 2. Seeing it | `fig, ax` step by step and `savefig` for about 25 minutes, then Plotly (`px.line`, `px.box`) for about 15 |
-| 10:50 (5 min) | Break | Stand up and stretch. Keep it even if block 2 overran |
-| 10:55 (30 min) | 3. Is it a trend? | About 10 minutes of NumPy: `.to_numpy()`, loop vs vectorised (with `%timeit`, on screen only), `np.nan` and `np.pi`, functions with a pandas method (`np.mean` and NaN) and without (`np.exp`). Then about 20: `np.polyfit`; 1853 vs 1970 on one chart; `linregress`: standard error, p-value, r²; distance from the trend as a z-score, with a filled-in chart to talk through |
-| 11:25 (10 min) | Break | |
-| 11:35 (35 min) | 4. A second station | `load_station()`, Lerwick fails, the fix, moving `load_station()` into `helper.py`, `concat`, saving `both` with `to_csv`, `groupby` |
-| 12:10 (30 min) | 5. Combining the stations | `unstack`, `.corr()` and `px.scatter`, `merge` (inner vs left), the Oxford–Lerwick gap |
-| 12:40 (15 min) | 6. A first taste of machine learning | scikit-learn's `fit`, `predict` and `score`: block 3's line again, an honest test on later years, then Oxford or Lerwick with a decision tree, baselines and the day–night gap. The random split and `plot_tree` are optional extras of about 4 minutes each |
+| 10:10 (35 min) | 2. Seeing it | `fig, ax` step by step and `savefig`, then the filled-in `subplot_mosaic` showcase if `savefig` is done by 10:30, for about 25 minutes; then Plotly (`px.line`, `px.box`) for about 10 |
+| 10:45 (5 min) | Break | Stand up and stretch. Keep it even if block 2 overran |
+| 10:50 (40 min) | 3. Is it a trend? | About 15 minutes of NumPy: `.to_numpy()`, loop vs vectorised (with `%timeit`, on screen only), `np.nan` and `np.pi`, functions with a pandas method (`np.mean` and NaN) and without (`np.exp`, filled in). Then about 25: `np.polyfit`; 1853 vs 1970 on one chart; `linregress`: standard error, p-value, r²; distance from the trend as a z-score, with a filled-in chart to talk through |
+| 11:30 (10 min) | Break | |
+| 11:40 (30 min) | 4. A second station | `load_station()`, Lerwick fails, the fix, `concat`, saving `both` with `to_csv`, `groupby` |
+| 12:10 (20 min) | 5. Combining the stations | `unstack`, `.corr()` and `px.scatter`, `merge` (inner vs left), the Oxford–Lerwick gap |
+| 12:30 (25 min) | 6. A first taste of machine learning | scikit-learn's `fit`, `predict` and `score`: block 3's line again, an honest test on later years, then Oxford or Lerwick with a decision tree, baselines and the day–night gap. The random split and `plot_tree` are optional extras of about 4 minutes each. The block that gives: stop after `predict`, or skip it |
 | 12:55 (5 min) | 7. Wrap | The answer from both stations; reproducibility checklist; where next |
