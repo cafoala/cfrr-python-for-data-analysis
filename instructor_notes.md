@@ -63,7 +63,7 @@ Learners start in `day2.ipynb`, in the same folder. Its first two cells, filled 
 | 10:45 (5 min) | Break | Stand up and stretch. Keep it even if block 2 overran |
 | 10:50 (40 min) | 3. Is it a trend? | About 15 minutes of NumPy: `.to_numpy()`, loop vs vectorised (with `%timeit`, on screen only), `np.nan` and `np.pi`, functions with a pandas method (`np.mean` and NaN) and without (`np.exp`, filled in). Then about 25: `np.polyfit`; 1853 vs 1970 on one chart; `linregress`: standard error, p-value, r²; distance from the trend as a z-score, with a filled-in chart to talk through |
 | 11:30 (10 min) | Break | |
-| 11:40 (30 min) | 4. A second station | `load_station()`, Lerwick fails, the fix, `concat`, saving `both` with `to_csv`, `groupby` |
-| 12:10 (20 min) | 5. Combining the stations | `unstack`, `.corr()` and `px.scatter`, `merge` (inner vs left), the Oxford–Lerwick gap |
-| 12:30 (25 min) | 6. A first taste of machine learning | scikit-learn's `fit`, `predict` and `score`: block 3's line again, an honest test on later years, then Oxford or Lerwick with a decision tree, baselines and the day–night gap. The random split and `plot_tree` are optional extras of about 4 minutes each. The block that gives: stop after `predict`, or skip it |
+| 11:40 (35 min) | 4. A second station | `load_station()`, Lerwick fails, the fix, moving `load_station()` into `helper.py`, `concat`, saving `both` with `to_csv`, `groupby` |
+| 12:15 (20 min) | 5. Combining the stations | `unstack`, `.corr()` and `px.scatter`, `merge` (inner vs left), the Oxford–Lerwick gap |
+| 12:35 (20 min) | 6. A first taste of machine learning | scikit-learn's `fit`, `predict` and `score`: block 3's line again, an honest test on later years, then Oxford or Lerwick with a decision tree, baselines and the day–night gap. The random split and `plot_tree` are optional extras of about 4 minutes each. The block that gives: stop after `predict`, or skip it |
 | 12:55 (5 min) | 7. Wrap | The answer from both stations; reproducibility checklist; where next |

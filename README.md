@@ -70,7 +70,7 @@ mkdir -p dist
 git archive --format=zip --prefix=python-for-data-analysis/ -o dist/python-for-data-analysis.zip HEAD:notebooks
 ```
 
-`git archive` takes only committed files, so the zip never picks up saved figures and CSV files, `.ipynb_checkpoints` or uncommitted edits, and the data files keep their exact bytes. If you change anything after sending the zip, rebuild it and send it again.
+`git archive` takes only committed files, so the zip never picks up saved figures and CSV files, the `helper.py` that Day 2 writes, `.ipynb_checkpoints` or uncommitted edits, and the data files keep their exact bytes. If you change anything after sending the zip, rebuild it and send it again.
 
 To change the data, replace the files in `notebooks/data/`, update the date and checksums in its README, rerun the demo notebooks and update the numbers in the speaker notes.
 
