@@ -19,7 +19,7 @@ Learners don't need git or a copy of this repository. Before the first session, 
 - Zoom JupyterLab to about 150% (Ctrl or Cmd and `+`) and use a light theme.
 - Hand out two colours of sticky note: green for "done", red for "stuck, please come over".
 - Learners on Python 3.10 have pandas 2.3; anyone on Python 3.11 or later who installed recently has pandas 3. Text columns show as `object` rather than `str`, and one error message is worded differently (Day 1, block 5).
-- Day 2 uses Plotly and `scipy.stats`. The README's setup installs both on top of the CfRR install command. If an import fails, `pip install plotly scipy`.
+- Day 2 uses Plotly, `scipy.stats` and scikit-learn. The CfRR install command includes scikit-learn, and the README's setup adds Plotly and SciPy on top of it. If an import fails, `pip install plotly scipy scikit-learn`.
 
 ## While live coding
 
@@ -60,8 +60,9 @@ Learners start in `day2.ipynb`, in the same folder. Its first two cells, filled 
 | 10:00 (10 min) | 1. Recap and "Restart and run all" | Yesterday's cleaning in one filled-in cell; the hidden-state demo |
 | 10:10 (40 min) | 2. Seeing it | `fig, ax` step by step and `savefig` for about 25 minutes, then Plotly (`px.line`, `px.box`) for about 15 |
 | 10:50 (5 min) | Break | Stand up and stretch. Keep it even if block 2 overran |
-| 10:55 (40 min) | 3. Is it a trend? | About 10 minutes of NumPy: `.to_numpy()`, loop vs vectorised, `%timeit`, how NaN behaves. Then about 30: `np.polyfit`; 1853 vs 1970; `linregress`: standard error, p-value, r²; distance from the trend as a z-score. Each result goes onto one `fig, ax` chart as it comes (the standard-error fan is optional) |
-| 11:35 (10 min) | Break | |
-| 11:45 (35 min) | 4. A second station | `load_station()`, Lerwick fails, the fix, moving `load_station()` into `helper.py`, `concat`, saving `both` with `to_csv`, `groupby` |
-| 12:20 (30 min) | 5. Combining and resampling | `unstack`, `.corr()` and `px.scatter`, `merge` (inner vs left), the Oxford–Lerwick gap, `resample` to years (and January to September, like for like) and seasons |
-| 12:50 (10 min) | 6. Wrap | The answer from both stations; reproducibility checklist; uv demo; where next |
+| 10:55 (30 min) | 3. Is it a trend? | About 8 minutes of NumPy: `.to_numpy()`, loop vs vectorised, how NaN behaves. Then about 22: `np.polyfit`; 1853 vs 1970 on one chart; `linregress`: standard error, p-value, r²; distance from the trend as a z-score, with a filled-in chart to talk through |
+| 11:25 (10 min) | Break | |
+| 11:35 (35 min) | 4. A second station | `load_station()`, Lerwick fails, the fix, moving `load_station()` into `helper.py`, `concat`, saving `both` with `to_csv`, `groupby` |
+| 12:10 (30 min) | 5. Combining and resampling | `unstack`, `.corr()` and `px.scatter`, `merge` (inner vs left), the Oxford–Lerwick gap, `resample` to years (and January to September, like for like) and seasons |
+| 12:40 (15 min) | 6. A first taste of machine learning | scikit-learn's `fit`, `predict` and `score`: block 3's line again, an honest test on later years, then Oxford or Lerwick with a decision tree, baselines and the day–night gap. The random split and `plot_tree` are optional extras of about 4 minutes each |
+| 12:55 (5 min) | 7. Wrap | The answer from both stations; reproducibility checklist; where next |
